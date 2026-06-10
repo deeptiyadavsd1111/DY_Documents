@@ -1,0 +1,36 @@
+name: 'Close stale PRs and issues'
+on:
+  schedule:
+    - cron: '0 21 * * *'
+
+permissions:
+  contents: write 
+  issues: write
+  pull-requests: write
+
+jobs:
+  stale-prs:
+    runs-on: default
+    defaults:
+      run:
+        working-directory: .github
+    steps:
+      - name: Remove stale PRs
+        uses: actions/stale@v9
+        with:
+          stale-issue-message: "This issue is stale because it has been open 30 days with no activity. Remove stale label or comment or this will be closed in 5 days."
+          stale-pr-message: "This PR is stale because it has been open 30 days with no activity. Remove stale label or comment or this will be closed in 5 days."
+          close-issue-label: "autoclose-stale"
+          close-issue-message: "This issue has been closed because there has been no activity for 30 days, and the 5 days grace has expired."
+          close-pr-message: "This PR has been closed because there has been no activity for 30 days, and the 5 days grace has expired."
+          close-pr-label: "autoclose-stale"
+          days-before-issue-stale: 30
+          days-before-pr-stale: 30
+          days-before-issue-close: 5
+          days-before-pr-close: 5
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Remove stale branches
+        run: bash ./scripts/remove_stale_branches.sh 30 30

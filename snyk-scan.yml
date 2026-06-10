@@ -1,0 +1,23 @@
+### Just getting started? Use this example.
+
+name: Snyk Scan
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  actions: read # This is for snyk to be able to read the actions
+  statuses: read # This is required for the security tab
+  id-token: write # This is required for requesting the JWT
+  contents: read
+  security-events: write # This is required to post to the security tab
+
+jobs:
+  CBA-Snyk-CLI:
+    uses: CBA-General/gha-base-templates/.github/workflows/reusable-snyk-scan.yaml@wfs/latest
+    with:
+      build-break: false
+      build-break-threshold: medium # optional
+      debug-mode: false # optional

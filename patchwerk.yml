@@ -1,69 +1,22 @@
-# Patchwerk Configuration File
-# https://ai-powered-engineering.pages.commbank.io/project-coral/installation/configuration-setup
+name: 🤖 Patchwerk
 
-# Information about the project for metric and categorisation purposes
-project:
-  # Business Unit (e.g. Technology - Digital, Technology - BB, Technology - CDAO, Chief Operations Office, Other etc.)
-  business_unit:
-  # Crew (e.g. Platform Modernisation, Engineering Pathways, Apply With Ease, etc.)
-  crew:
+on:
+  # Workflow dispatch event to manually trigger the sync issues workflow
+  workflow_dispatch:
 
-# GitHub Token can be set via GITHUB_TOKEN, GITHUB_PERSONAL_ACCESS_TOKEN env var for local use. This is automatically set when running on GitHub.
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+  id-token: write
+  actions: write
 
-sonarqube:
-  project_keys: []
-
-snyk:
-  project_ids:
-    - "843b2ad5-549c-4487-a530-5e7732064cb7"
-  org_id: "79919548-00ed-45be-afc3-0603feaa2f3e" # Can be set via SNYK_ORG_ID env var
-
-observe:
-  datasets: {}
-
-# AI Tool behaviour and model configuration
-ai:
-  default_tool: "claude" # Can be set via PATCHWERK_AI_DEFAULT_TOOL env var
-  default_model: "bedrock-claude-4-sonnet" # Can be set via PATCHWERK_AI_DEFAULT_MODEL env var
-  debug_mode: false # Can be set via PATCHWERK_AI_DEBUG_MODE env var, default false
-  # custom_instructions_file: "CLAUDE.md" # Path to custom instructions file (can be set via PATCHWERK_AI_CUSTOM_INSTRUCTIONS_FILE env var), default No custom instructions
-  direct_commit: true # When working on PR events, commit directly to existing branch instead of creating new PR (can be set via PATCHWERK_AI_DIRECT_COMMIT env var), default true
-  review_pr_on_open: true  # When a PR is opened, have the AI tool review it (can be set via PATCHWERK_AI_REVIEW_PR_ON_OPEN env var), default true
-  # Branch naming conventions
-  branch_prefixes:
-    - feat
-    - fix
-    - hotfix
-
-sync:
-  # Options: ["sonarqube_issues", "snyk_issues", "coverage", "observe"]
-  issues_to_sync: ["snyk_issues"] # Default all
-
-  sonarqube_issues:
-    num_batches: 3 # Number of batches to sync for SonarQube issues (default: 5)
-    batch_limit: 5 # Maximum number of issues per batch (default: 5)
-    # Minimum severity to sync issues, can be set to "blocker", "critical", "major", "minor", "info"
-    min_severity: "minor"
-    # This will limit the number of issues that will be open for this type in GitHub
-    max_open_issues: 3 # Set to a number to limit open issues, null for no limit
-
-  snyk_issues:
-    num_batches: 3 # Number of batches to sync for Snyk issues (default: 5)
-    batch_limit: 5 # Maximum number of issues per batch (default: 5)
-    # Minimum severity to sync issues, can be set to "critical", "high", "medium", "low"
-    min_severity: "medium"
-    # This will limit the number of issues that will be open for this type in GitHub
-    max_open_issues: 3 # Set to a number to limit open issues, null for no limit
-
-  coverage:
-    num_files: 3 # Number of files to sync for coverage (default: 5)
-    min_coverage: 50 # Minimum coverage percentage to reach, issues are created for files below this threshold (default: 70.0)
-    # This will limit the number of issues that will be open for this type in GitHub
-    max_open_issues: 3 # Set to a number to limit open issues, null for no limit
-
-  observe:
-    num_batches: 3 # Number of batches to sync for Observe issues (default: 5)
-    # This will limit the number of issues that will be open for this type in GitHub
-    max_open_issues: 3 # Set to a number to limit open issues, null for no limit
-
-log_level: "DEBUG" # Can be set via PATCHWERK_LOG_LEVEL env var (DEBUG, INFO, WARNING, ERROR, CRITICAL)
+# Any changes made to the workflow may be overwritten when the file is updated.
+jobs:
+  patchwerk-sync:
+    if: github.event_name == 'workflow_dispatch' || github.event_name == 'schedule'
+    # Point the action to latest (@latest) or development (@main)
+    uses: CBA-General/patchwerk/.github/workflows/patchwerk-sync-issues.yml@latest
+    with:
+      # The version of the tool to install, latest (@latest) or development (@main)
+      version: "latest"

@@ -1,0 +1,81 @@
+# Simple workflow for deploying static content to GitHub Pages
+name: Deploy to Pages
+
+on:
+  workflow_run:
+    workflows: ["Build Dashboard"]
+    types:
+      - completed
+    branches:
+      - main
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  actions: read
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+# Minimise our NodeJS memory usage for CBA Github Action runners
+env:
+  NODE_OPTIONS: --max-old-space-size=3072
+
+jobs:
+  publish:
+    name: Publish Build
+    runs-on: default
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node 20.20.0
+        uses: actions/setup-node@v4.0.2
+        with:
+          node-version: 20.20.0
+          cache: npm
+          cache-dependency-path: ./package-lock.json
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build website
+        run: npm run build --no-minify
+
+      - name: Download dashboard artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: dashboard-html
+          path: /tmp
+          run-id: ${{ github.event.workflow_run.id }}
+          # A token is required when downloading from a different run
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Copy static dashboard html to build directory
+        run: cp -v -f /tmp/dashboard.html ./build/img/dashboard.html
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # Upload entire repository
+          path: ./build
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
