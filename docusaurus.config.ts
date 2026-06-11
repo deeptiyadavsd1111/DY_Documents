@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'DY Notes',
-  tagline: 'My personal knowledge base',
+  tagline: 'My personal knowledge documents',
   favicon: 'img/favicon.ico',
 
   future: {
@@ -12,10 +12,10 @@ const config: Config = {
   },
 
   url: 'https://deeptiyadavsd1111.github.io',
-  baseUrl: '/my-notes/',
+  baseUrl: '/Deepti-Yadav/',
 
   organizationName: 'deeptiyadavsd1111',
-  projectName: 'my-notes',
+  projectName: 'Deepti-Yadav',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -59,7 +59,7 @@ const config: Config = {
           label: 'Notes',
         },
         {
-          href: 'https://github.com/deeptiyadavsd1111/my-notes',
+          href: 'https://github.com/deeptiyadavsd1111/Deepti-Yadav',
           label: 'GitHub',
           position: 'right',
         },
@@ -82,7 +82,7 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/deeptiyadavsd1111/my-notes',
+              href: 'https://github.com/deeptiyadavsd1111/Deepti-Yadav',
             },
           ],
         },
