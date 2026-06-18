@@ -26,6 +26,6 @@ docs
     ├── Introduction.md
 └── setup-guide.md
 ```
-![alt text](../static/img/1.webp)
+static/img/photo01.png
 
 Use the sidebar on the left to navigate between topics.
