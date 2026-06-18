@@ -7,10 +7,6 @@ const config: Config = {
   tagline: 'My personal knowledge documents',
   favicon: 'img/favicon.ico',
 
-  future: {
-    v4: true,
-  },
-
   url: 'https://deeptiyadavsd1111.github.io',
   baseUrl: '/DY_Documents/',
   trailingSlash: false,
@@ -19,7 +15,12 @@ const config: Config = {
   projectName: 'DY_Documents',
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   i18n: {
     defaultLocale: 'en',
