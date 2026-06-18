@@ -30,6 +30,7 @@ const config: Config = {
       'classic',
       {
         docs: {
+          routeBasePath: '/', // Docs become the homepage
           sidebarPath: './sidebars.ts',
         },
         blog: false,
@@ -42,9 +43,11 @@ const config: Config = {
 
   themeConfig: {
     image: 'img/docusaurus-social-card.jpg',
+
     colorMode: {
       respectPrefersColorScheme: true,
     },
+
     navbar: {
       title: 'DY_Documents',
       logo: {
@@ -56,7 +59,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'DY_Documents',
+          label: 'Documents',
         },
         {
           href: 'https://github.com/deeptiyadavsd1111/DY_Documents',
@@ -65,15 +68,16 @@ const config: Config = {
         },
       ],
     },
+
     footer: {
       style: 'dark',
       links: [
         {
-          title: 'DY_Documents',
+          title: 'Documents',
           items: [
             {
               label: 'Get Started',
-              to: '/docs/intro',
+              to: '/',
             },
           ],
         },
@@ -89,6 +93,7 @@ const config: Config = {
       ],
       copyright: `Copyright © ${new Date().getFullYear()} DY_Documents`,
     },
+
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
