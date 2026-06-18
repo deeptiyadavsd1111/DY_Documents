@@ -13,6 +13,7 @@ const config: Config = {
 
   url: 'https://deeptiyadavsd1111.github.io',
   baseUrl: '/DY_Documents/',
+  trailingSlash: false,
 
   organizationName: 'deeptiyadavsd1111',
   projectName: 'DY_Documents',
@@ -42,18 +43,12 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: 'img/docusaurus-social-card.jpg',
-
     colorMode: {
       respectPrefersColorScheme: true,
     },
 
     navbar: {
       title: 'DY_Documents',
-      logo: {
-        alt: 'DY_Documents Logo',
-        src: 'img/logo.svg',
-      },
       items: [
         {
           type: 'docSidebar',
