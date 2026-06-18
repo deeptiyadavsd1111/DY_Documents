@@ -11,9 +11,13 @@ This site contains technical notes, documentation, and guides for various topics
 
 ## Available Topics
 
-# Commvault
+### Commvault
 
-# DevOps
+Documentation related to backup and recovery.
+
+### DevOps
+
+Documentation related to CI/CD, Docker, Kubernetes, and automation.
 
 ## Folder Structure
 
@@ -24,7 +28,7 @@ docs
 │   └── Introduction.md
 └── DevOps
     ├── Introduction.md
-└── setup-guide.md
+    └── setup-guide.md
 ```
 
 Use the sidebar on the left to navigate between topics.
