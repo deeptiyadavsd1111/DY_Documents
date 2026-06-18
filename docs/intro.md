@@ -11,9 +11,9 @@ This site contains technical notes, documentation, and guides for various topics
 
 ## Available Topics
 
-### Commvault
+## Commvault
 
-### DevOps
+## DevOps
 
 ## Folder Structure
 
