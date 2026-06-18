@@ -26,6 +26,6 @@ docs
     ├── Introduction.md
 └── setup-guide.md
 ```
-/Users/dy/Desktop/Devops/DY_Documents/static/img/photo01.png
+![alt text](../static/img/anonymous-hacker-free-photo.webp)
 
 Use the sidebar on the left to navigate between topics.
