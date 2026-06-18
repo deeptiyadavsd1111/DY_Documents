@@ -27,4 +27,5 @@ docs
 └── setup-guide.md
 ```
 ![alt text](../static/img/1.webp)
+
 Use the sidebar on the left to navigate between topics.
