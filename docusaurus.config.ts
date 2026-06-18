@@ -3,7 +3,7 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'DY Notes',
+  title: 'DY_Documents',
   tagline: 'My personal knowledge documents',
   favicon: 'img/favicon.ico',
 
@@ -12,10 +12,10 @@ const config: Config = {
   },
 
   url: 'https://deeptiyadavsd1111.github.io',
-  baseUrl: '/Deepti-Yadav/',
+  baseUrl: '/DY_Documents/',
 
   organizationName: 'deeptiyadavsd1111',
-  projectName: 'Deepti-Yadav',
+  projectName: 'DY_Documents',
 
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
@@ -46,9 +46,9 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'DY Notes',
+      title: 'DY_Documents',
       logo: {
-        alt: 'DY Notes Logo',
+        alt: 'DY_Documents Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -56,10 +56,10 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Notes',
+          label: 'DY_Documents',
         },
         {
-          href: 'https://github.com/deeptiyadavsd1111/Deepti-Yadav',
+          href: 'https://github.com/deeptiyadavsd1111/DY_Documents',
           label: 'GitHub',
           position: 'right',
         },
@@ -69,7 +69,7 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Notes',
+          title: 'DY_Documents',
           items: [
             {
               label: 'Get Started',
@@ -82,12 +82,12 @@ const config: Config = {
           items: [
             {
               label: 'GitHub',
-              href: 'https://github.com/deeptiyadavsd1111/Deepti-Yadav',
+              href: 'https://github.com/deeptiyadavsd1111/DY_Documents',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} DY Notes`,
+      copyright: `Copyright © ${new Date().getFullYear()} DY_Documents`,
     },
     prism: {
       theme: prismThemes.github,
