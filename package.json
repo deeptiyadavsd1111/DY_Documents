@@ -1,89 +1,35 @@
+```json
 {
-  "name": "dpss",
+  "name": "dy_documents",
   "version": "1.0.0",
   "private": true,
+
   "scripts": {
-    "docusaurus": "docusaurus",
-    "prestart": "node ./tools/run-prebuild.mjs",
-    "start": "docusaurus start --host 0.0.0.0",
-    "prebuild": "node ./tools/run-prebuild.mjs",
+    "start": "docusaurus start",
     "build": "docusaurus build",
-    "swizzle": "docusaurus swizzle",
-    "deploy": "docusaurus deploy",
-    "clear": "docusaurus clear",
     "serve": "docusaurus serve",
-    "write-translations": "docusaurus write-translations",
-    "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc",
-    "check:links": "bash ./tools/deadlinkCheck.sh",
-    "generate-author-page": "node ./tools/authorPage.mjs",
-    "release": "release-it",
-    "markdown:lint": "npx markdownlint --ignore _site/ --ignore node_modules/ --ignore docusaurus/node_modules/ \"content/**/*.md\" --disable MD013 MD033 MD045 MD029 MD024 MD025"
+    "clear": "docusaurus clear",
+    "deploy": "docusaurus deploy",
+    "swizzle": "docusaurus swizzle",
+    "typecheck": "tsc"
   },
+
   "dependencies": {
     "@docusaurus/core": "^3.10.0",
-    "@docusaurus/faster": "^3.10.0",
-    "@docusaurus/plugin-client-redirects": "^3.10.0",
     "@docusaurus/preset-classic": "^3.10.0",
-    "@easyops-cn/docusaurus-search-local": "^0.55.1",
     "@mdx-js/react": "^3.1.1",
-    "@octokit/action": "^8.0.4",
-    "@svgr/webpack": "^8.1.0",
-    "clsx": "^2.1.1",
-    "cspell": "^9.7.0",
-    "docusaurus-plugin-plausible": "^0.0.5",
-    "file-loader": "^6.2.0",
-    "launchdarkly-js-client-sdk": "^3.9.1",
-    "markdown-link-check": "^3.14.2",
-    "markdownlint-cli": "^0.48.0",
-    "minimist": "^1.2.8",
-    "octokit": "^5.0.5",
-    "plantuml-encoder": "^1.4.0",
     "prism-react-renderer": "^2.4.1",
-    "prismjs": "^1.30.0",
     "react": "^18.2.0",
-    "react-device-detect": "^2.2.3",
-    "react-dom": "^18.2.0",
-    "url-loader": "^4.1.1",
-    "yarn": "^1.22.22"
+    "react-dom": "^18.2.0"
   },
+
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.10.0",
     "@docusaurus/tsconfig": "^3.10.0",
     "@docusaurus/types": "^3.10.0",
-    "@eslint/eslintrc": "^3.3.5",
-    "@eslint/js": "^9.39.4",
-    "@types/node-fetch": "^2.6.13",
-    "@types/plantuml-encoder": "^1.4.2",
-    "@typescript-eslint/eslint-plugin": "^8.57.1",
-    "@typescript-eslint/parser": "^8.57.1",
-    "eslint": "^9.39.4",
-    "eslint-plugin-eslint-plugin": "^7.3.2",
-    "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-security": "^4.0.0",
-    "eslint-visitor-keys": "^3.4.3",
-    "globals": "^17.4.0",
-    "node-fetch": "^3.3.2",
-    "release-it": "^19.2.4",
-    "remark": "^15.0.1",
-    "remark-cli": "^12.0.1",
-    "remark-validate-links": "^13.1.0",
     "typescript": "^5.9.3"
   },
-  "overrides": {
-    "glob": "^13.0.6",
-    "lodash": "^4.18.1",
-    "minimatch": ">=10.2.3",
-    "picomatch": "^4.0.3",
-    "samsam": "@sinonjs/samsam",
-    "serialize-javascript": "^7.0.5",
-    "svgo": "^2.0.0",
-    "undici": "^7.24.0",
-    "uuid": "^14.0.0",
-    "basic-ftp": "^5.3.1",
-    "brace-expansion": "^5.0.5",
-    "webpackbar": "^7.0.0"
-  },
+
   "browserslist": {
     "production": [
       ">0.5%",
@@ -95,11 +41,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "release-it": {
-    "git": {
-      "changelog": "git log --pretty=format:\"* %s (%h)\" ${from}...${to}",
-      "requireBranch": false
-    }
   }
 }
+```
