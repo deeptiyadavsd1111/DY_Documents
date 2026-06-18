@@ -30,8 +30,8 @@ const config: Config = {
       'classic',
       {
         docs: {
-          routeBasePath: '/', // Docs become the homepage
-          sidebarPath: './sidebars.ts',
+          routeBasePath: '/',
+          sidebarPath: './sidebars.js',
         },
         blog: false,
         theme: {
@@ -76,7 +76,7 @@ const config: Config = {
           title: 'Documents',
           items: [
             {
-              label: 'Get Started',
+              label: 'Home',
               to: '/',
             },
           ],
