@@ -26,6 +26,6 @@ docs
     ├── Introduction.md
 └── setup-guide.md
 ```
-static/img/photo01.png
+/Users/dy/Desktop/Devops/DY_Documents/static/img/photo01.png
 
 Use the sidebar on the left to navigate between topics.
