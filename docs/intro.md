@@ -26,6 +26,5 @@ docs
     ├── Introduction.md
 └── setup-guide.md
 ```
-![alt text](../static/img/anonymous-hacker-free-photo.webp)
 
 Use the sidebar on the left to navigate between topics.
