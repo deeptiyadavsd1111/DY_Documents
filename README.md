@@ -52,16 +52,3 @@ Linting is automatically run as part of the development server startup process v
 ```bash
 make lint-markdown
 ```
-
-## Configuration Files
-
-The project uses the following configuration files for linting:
-
-- `.eslintrc.js` - ESLint configuration for JavaScript/TypeScript linting
-- `tools/cspell.json` - CSpell configuration for spell checking
-
-
-## CSpell Process and Whitelisting
-CSpell is used for spell checking throughout the codebase.
-
-> **Note:** We no longer use the `words` array inside `tools/cspell.json`. The dictionary has been split into multiple files under `tools/dictionaries/`.
