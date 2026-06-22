@@ -8,7 +8,7 @@
 
 # 1. Objective
 
-Create a centralized documentation website for storing technical notes and guides related to:
+To create a centralized documentation website for storing technical notes and guides related to:
 
 - Commvault
 - DevOps
@@ -18,7 +18,7 @@ Create a centralized documentation website for storing technical notes and guide
 - Linux
 - GitHub Actions
 
-The website will be hosted using **GitHub Pages** and built using **Docusaurus**.
+The website will be hosted using GitHub Pages and built using Docusaurus.
 
 ---
 
@@ -40,7 +40,9 @@ Docusaurus is a static site generator developed by Meta (Facebook) that converts
 
 # 3. Prerequisites
 
-Install Node.js and verify:
+Install Node.js.
+
+Verify installation:
 
 ```bash
 node -v
@@ -173,9 +175,9 @@ Used for automatic deployment.
 
 ## Purpose
 
-Controls navigation menu.
+Controls the navigation menu.
 
-## File
+### File
 
 ```javascript
 const sidebars = {
@@ -192,7 +194,7 @@ module.exports = sidebars;
 
 ### Why?
 
-Automatically generates the sidebar based on the folder structure.
+Automatically generates sidebar based on folder structure.
 
 ---
 
@@ -218,13 +220,13 @@ docs: {
 },
 ```
 
-Meaning:
+### Meaning
 
 ```text
 https://deeptiyadavsd1111.github.io/DY_Documents/
 ```
 
-opens the documentation directly.
+Opens documentation directly.
 
 ### Broken Links
 
@@ -277,13 +279,13 @@ pre {
 
 Prevents GitHub Pages from processing the site with Jekyll.
 
-File:
+### File
 
 ```text
 static/.nojekyll
 ```
 
-Contents:
+### Contents
 
 ```text
 (empty)
@@ -293,13 +295,13 @@ Contents:
 
 # 11. Home Page
 
-File:
+### File
 
 ```text
 docs/intro.md
 ```
 
-Content:
+### Content
 
 ```md
 ---
@@ -328,13 +330,13 @@ Use the sidebar to navigate.
 
 # 12. Commvault Documentation
 
-File:
+### File
 
 ```text
 docs/Commvault/Introduction.md
 ```
 
-Content:
+### Content
 
 ```md
 # Commvault
@@ -356,13 +358,13 @@ Commvault is an enterprise backup and recovery solution.
 
 # 13. DevOps Documentation
 
-File:
+### File
 
 ```text
 docs/DevOps/Introduction.md
 ```
 
-Content:
+### Content
 
 ```md
 # DevOps
@@ -384,13 +386,13 @@ DevOps combines development and operations to automate software delivery.
 
 # 14. Setup Guide
 
-File:
+### File
 
 ```text
 docs/DevOps/setup-guide.md
 ```
 
-Content:
+### Content
 
 ````md
 # Setup Guide
@@ -413,3 +415,191 @@ brew install node
 node -v
 npm -v
 ```
+
+# 15. package.json
+
+## Purpose
+
+Contains project dependencies and commands.
+
+## Scripts
+
+```json
+{
+  "scripts": {
+    "start": "docusaurus start",
+    "build": "docusaurus build",
+    "serve": "docusaurus serve",
+    "clear": "docusaurus clear",
+    "deploy": "docusaurus deploy"
+  }
+}
+```
+
+# 16. Install Dependencies
+
+```bash
+npm install
+```
+
+## Purpose
+
+Downloads packages required by Docusaurus.
+
+---
+
+# 17. Run Locally
+
+```bash
+npm start
+```
+
+## Site
+
+```text
+http://localhost:3000
+```
+
+## Purpose
+
+Preview documentation locally.
+
+---
+
+# 18. Build Website
+
+```bash
+npm run build
+```
+
+## Purpose
+
+Generates production-ready files.
+
+### Creates
+
+```text
+build/
+```
+
+---
+
+# 19. Git Commands
+
+## Add Files
+
+```bash
+git add .
+```
+
+## Commit
+
+```bash
+git commit -m "Initial documentation"
+```
+
+## Push
+
+```bash
+git push origin main
+```
+
+---
+
+# 20. GitHub Actions
+
+## File
+
+```text
+.github/workflows/deploy-pages.yaml
+```
+
+## Purpose
+
+Automatically deploys the site after every push.
+
+## Flow
+
+```text
+Developer
+     ↓
+git push
+     ↓
+GitHub Actions
+     ↓
+npm install
+     ↓
+npm run build
+     ↓
+build folder
+     ↓
+GitHub Pages
+     ↓
+Website Published
+```
+
+---
+
+# 21. Deployment URL
+
+```text
+https://deeptiyadavsd1111.github.io/DY_Documents/
+```
+
+---
+
+# 22. Recommended Future Topics
+
+```text
+docs
+│
+├── Linux
+├── Docker
+├── Kubernetes
+├── Jenkins
+├── Terraform
+├── AWS
+├── GitHubActions
+├── Python
+├── SQL
+├── Monitoring
+└── Troubleshooting
+```
+
+---
+
+# Final Architecture
+
+```text
+                Markdown Files
+                       │
+                       ▼
+                 Docusaurus Engine
+                       │
+                       ▼
+                 Build Folder
+                       │
+                       ▼
+                GitHub Actions
+                       │
+                       ▼
+                  GitHub Pages
+                       │
+                       ▼
+              https://deeptiyadavsd1111.github.io/DY_Documents/
+```
+
+---
+
+# Summary
+
+This SOP explains:
+
+1. Installing Docusaurus.
+2. Understanding the project structure.
+3. Configuring `sidebars.js` and `docusaurus.config.ts`.
+4. Creating documentation pages.
+5. Styling with `custom.css`.
+6. Building and testing locally.
+7. Deploying automatically using GitHub Actions.
+8. Publishing documentation to GitHub Pages.

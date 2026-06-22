@@ -9,7 +9,7 @@ const config: Config = {
 
   url: 'https://deeptiyadavsd1111.github.io',
   baseUrl: '/DY_Documents/',
-  trailingSlash: false,
+  trailingSlash: true,
 
   organizationName: 'deeptiyadavsd1111',
   projectName: 'DY_Documents',
